@@ -7,6 +7,8 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
+
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -29,7 +31,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false})
   ],
-  providers: [],
+  providers: [{ provide: 'Quagga', useValue: window['Quagga'] }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

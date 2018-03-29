@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" >
+<mat-toolbar color="primary" class="cf-collector-toolbar">
   <div fxFlex fxLayout="row">
     <div fxFlex="95" class="yc-title">{{title}}</div>
     <div fxFlex="5">
@@ -15,4 +15,6 @@
     </div>
   </div>
 </mat-toolbar>
-<router-outlet></router-outlet>
+<div class="cf-collector-container">
+  <router-outlet></router-outlet>
+</div>

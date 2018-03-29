@@ -22,7 +22,7 @@
         "styles.css",
         "cf-collector-theme.scss"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/quagga/dist/quagga.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

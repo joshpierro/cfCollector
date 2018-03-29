@@ -1,1 +1,28 @@
-home
+<div fxLayout="row" fxLayoutAlign="center center" >
+  <div class="button-row" >
+    <button mat-icon-button color="primary">
+      <img src="assets/images/buttons/ic_camera_rear_black_24px.svg" alt="scan" aria-label="bar code">
+    </button>
+    <button mat-icon-button color="primary">
+      <img src="assets/images/buttons/ic_mode_edit_black_24px.svg" alt="edit" aria-label="edit">
+    </button>
+    <button mat-icon-button color="primary">
+      <img src="assets/images/buttons/ic_camera_black_24px.svg" alt="camera" aria-label="take picture">
+    </button>
+    <button mat-icon-button color="primary">
+      <img src="assets/images/buttons/ic_save_black_24px.svg" alt="camera" aria-label="take picture">
+    </button>
+  </div>
+</div>
+
+<mat-card id="cf-scan-preview"
+          class="cf-scan-container">
+</mat-card>
+
+<button mat-icon-button
+        color="primary"
+        (click)="quaggaStop()">
+ stop
+</button>
+
+
