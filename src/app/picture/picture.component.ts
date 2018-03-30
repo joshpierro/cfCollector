@@ -18,9 +18,7 @@ export class PictureComponent implements OnInit {
     this.canvas = document.getElementById('canvas');
     this.context = this.canvas.getContext('2d');
 
-    const constraints = {
-      video: true,
-    };
+    const constraints = { video: { facingMode: { exact: "environment" } } };
 
     navigator.mediaDevices.getUserMedia(constraints)
       .then((stream) => {
