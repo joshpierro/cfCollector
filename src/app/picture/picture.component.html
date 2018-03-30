@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header fxLayout="row"
+                   fxLayoutAlign="end start">
+    <mat-card-title>
+      <span routerLink="/">
+       <strong>X</strong>
+      </span>
+    </mat-card-title>
+  </mat-card-header>
+  <video id="player"
+         controls
+         autoplay
+         (click)="takePicture()"></video>
+</mat-card>
+<canvas id="canvas" width=320 height=240></canvas>

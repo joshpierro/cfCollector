@@ -1,4 +1,6 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Item} from "../Item/Item";
+import {ItemsService} from "../items.service";
 
 @Component({
   selector: 'app-home',
@@ -7,45 +9,16 @@ import {Component, OnInit, Inject} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  itemsService:ItemsService;
   quagga:any;
 
-
-  constructor(@Inject('Quagga') quagga: any) {
-    this.quagga = quagga;
+  constructor(itemsService:ItemsService) {
+    this.itemsService = itemsService;
   }
 
   ngOnInit() {
-    this.quagga.init({
-      inputStream : {
-        name : "Live",
-        type : "LiveStream",
-        target: document.querySelector('#cf-scan-preview')
-      },
-      decoder : {
-        readers : ["code_128_reader"]
-      }
-    },(err)=>{
-      if (err) {
-        console.log(err);
-        return
-      }
-      console.log("Initialization finished. Ready to start");
-      this.quagga.start();
-    });
-
-/*    this.quagga.onProcessed((result)=>{
-      console.log(result);
-    })*/
-
-
-    this.quagga.onDetected((result)=>{
-      console.log(result);
-      alert('hey-o')
-    })
-  }
-
-  quaggaStop(){
-    this.quagga.stop();
+    if(!this.itemsService.currentItem.title)
+    this.itemsService.currentItem.title = 'Item';
   }
 
 }

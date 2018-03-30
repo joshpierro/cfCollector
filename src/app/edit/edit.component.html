@@ -1,0 +1,23 @@
+<div class="cf-description-form-container">
+  <mat-form-field class="cf-full-width-input">
+    <input matInput
+           placeholder="Title"
+           [(ngModel)]="itemsService.currentItem.title">
+  </mat-form-field>
+  <mat-form-field class="cf-full-width-input">
+  <textarea matInput
+            placeholder="Description"
+            matTextareaAutosize
+            matAutosizeMinRows="1"
+            matAutosizeMaxRows="15"
+            [(ngModel)]="itemsService.currentItem.description"></textarea>
+  </mat-form-field>
+  <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+    <button
+      mat-button
+      routerLink="">DONE</button>
+  </mat-card-actions>
+</div>
+
+
+

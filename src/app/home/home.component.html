@@ -1,13 +1,22 @@
-<div fxLayout="row" fxLayoutAlign="center center" >
-  <div class="button-row" >
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="button-row">
     <button mat-icon-button color="primary">
-      <img src="assets/images/buttons/ic_camera_rear_black_24px.svg" alt="scan" aria-label="bar code">
+      <img src="assets/images/buttons/ic_camera_rear_black_24px.svg"
+           alt="scan"
+           aria-label="bar code"
+           routerLink="/scan">
     </button>
     <button mat-icon-button color="primary">
-      <img src="assets/images/buttons/ic_mode_edit_black_24px.svg" alt="edit" aria-label="edit">
+      <img src="assets/images/buttons/ic_mode_edit_black_24px.svg"
+           alt="edit"
+           aria-label="edit"
+           routerLink="/edit">
     </button>
     <button mat-icon-button color="primary">
-      <img src="assets/images/buttons/ic_camera_black_24px.svg" alt="camera" aria-label="take picture">
+      <img src="assets/images/buttons/ic_camera_black_24px.svg"
+           alt="camera"
+           aria-label="take picture"
+           routerLink="/picture">
     </button>
     <button mat-icon-button color="primary">
       <img src="assets/images/buttons/ic_save_black_24px.svg" alt="camera" aria-label="take picture">
@@ -15,14 +24,21 @@
   </div>
 </div>
 
-<mat-card id="cf-scan-preview"
-          class="cf-scan-container">
+
+<mat-card>
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <h3>{{itemsService.currentItem.title}}</h3>
+    </mat-list-item>
+    <mat-list-item role="listitem"
+                   *ngIf="itemsService.currentItem.code">
+      <strong>ItemNumber: </strong> {{itemsService.currentItem.code}}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+     {{itemsService.currentItem.description}}
+    </mat-list-item>
+    <mat-list-item role="listitem"></mat-list-item>
+  </mat-list>
+
 </mat-card>
-
-<button mat-icon-button
-        color="primary"
-        (click)="quaggaStop()">
- stop
-</button>
-
 
