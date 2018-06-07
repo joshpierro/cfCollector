@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
-import {Item} from "./Item/Item";
+import {Injectable} from '@angular/core';
+import {Item} from './Item/Item';
 
 @Injectable()
 export class ItemsService {
 
-  currentItem:Item;
+  currentItem: Item;
+
   constructor() {
-    if(!this.currentItem){
+    if (!this.currentItem) {
       this.currentItem = new Item();
     }
   }

@@ -1,15 +1,23 @@
-<mat-card>
-  <mat-card-header fxLayout="row"
-                   fxLayoutAlign="end start">
-    <mat-card-title>
-      <span routerLink="/">
-       <strong>X</strong>
-      </span>
-    </mat-card-title>
-  </mat-card-header>
-  <video id="player"
-         controls
-         autoplay
-         (click)="takePicture()"></video>
+<div class="cf-file-inputs">
+  <input type="file"
+         class="cf-file-input"
+         accept="image/*"
+         (change)="getPic($event)">
+    <div class="cf-styled-file-input ">
+      <button mat-raised-button color="primary">New Picture</button>
+    </div>
+    <a mat-raised-button routerLink="..">Done</a>
+</div>
+
+<mat-card *ngIf="images.length>0">
+    <div *ngFor="let image of images;index as i" class="cf-thumbnail-container">
+        <div>
+          <img [src]="image.data" alt="image.name" class="cf-image-thumbnail">
+        </div>
+        <div class="cf-image-stuff">
+          {{ image.name | slice:0:40}}  <button mat-button color="warn" (click)="removeImage(i)">remove</button>
+        </div>
+    </div>
 </mat-card>
-<canvas id="canvas" width=320 height=240></canvas>
+
+

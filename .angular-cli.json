@@ -22,7 +22,7 @@
         "styles.css",
         "cf-collector-theme.scss"
       ],
-      "scripts": ["../node_modules/quagga/dist/quagga.js"],
+      "scripts": ["../libs/quagga/quagga.min.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -56,6 +56,9 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {},
+    "serve": {
+      "port": 4444
+    }
   }
 }

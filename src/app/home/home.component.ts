@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Item} from "../Item/Item";
-import {ItemsService} from "../items.service";
+import {Item} from '../Item/Item';
+import {ItemsService} from '../items.service';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +9,17 @@ import {ItemsService} from "../items.service";
 })
 export class HomeComponent implements OnInit {
 
-  itemsService:ItemsService;
-  quagga:any;
+  itemsService: ItemsService;
+  quagga: any;
 
-  constructor(itemsService:ItemsService) {
+  constructor(itemsService: ItemsService) {
     this.itemsService = itemsService;
   }
 
   ngOnInit() {
-    if(!this.itemsService.currentItem.title)
+    if (!this.itemsService.currentItem.title) {
     this.itemsService.currentItem.title = 'Item';
+    }
   }
 
 }

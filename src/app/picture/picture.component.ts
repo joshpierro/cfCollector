@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CfImage} from '../models/cf-image';
+import {ItemsService} from '../items.service';
 
 @Component({
   selector: 'app-picture',
@@ -7,28 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PictureComponent implements OnInit {
 
-  private player:any;
-  private canvas:any;
-  private context:any;
+  images = Array<CfImage>();
+  itemsService: ItemsService;
 
-  constructor() { }
+  constructor(itemsService: ItemsService) {
+    this.itemsService = itemsService;
+    if (!this.itemsService.currentItem.images) {
+      this.itemsService.currentItem.images = [];
+    }
+  }
 
   ngOnInit() {
-    this.player = document.getElementById('player');
-    this.canvas = document.getElementById('canvas');
-    this.context = this.canvas.getContext('2d');
-
-    const constraints = { video: { facingMode: { exact: "environment" } } };
-
-    navigator.mediaDevices.getUserMedia(constraints)
-      .then((stream) => {
-        this.player.srcObject = stream;
-      });
-
+    this.images = this.itemsService.currentItem.images;
   }
 
-  takePicture(){
-    this.context.drawImage(this.player, 0, 0, this.canvas.width, this.canvas.height);
+  getPic($event: any): void {
+    const file = $event.target.files[0];
+    const reader = new FileReader();
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+    reader.addEventListener(
+      'load',
+      () => {
+        this.itemsService.currentItem.images.push(new CfImage(file.name, file.type, reader.result));
+      },
+      false);
   }
 
+  public removeImage(index: number): void {
+    this.itemsService.currentItem.images.splice(index, 1);
+  }
 }
