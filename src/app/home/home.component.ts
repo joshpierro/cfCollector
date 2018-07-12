@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() { }
 
   saveItem(): void {
-    console.log(this.itemsService.currentItem);
+    this.itemsService
+      .save(this.itemsService.currentItem)
+      .then(response => {
+        this.itemsService.currentItem = new Item();
+      });
   }
 }
