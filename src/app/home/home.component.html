@@ -18,13 +18,11 @@
            aria-label="take picture"
            routerLink="/picture">
     </button>
-    <button mat-icon-button color="primary">
+    <button mat-icon-button color="primary" [disabled]="!itemsService.currentItem.canSave()" (click)="saveItem()">
       <img src="assets/images/buttons/ic_save_black_24px.svg" alt="camera" aria-label="take picture">
     </button>
-  </div>
-</div>
-
-
+    </div>
+    </div>
 <mat-card>
   <mat-list role="list">
     <mat-list-item role="listitem">
@@ -39,6 +37,5 @@
     </mat-list-item>
     <mat-list-item role="listitem"></mat-list-item>
   </mat-list>
-
 </mat-card>
 

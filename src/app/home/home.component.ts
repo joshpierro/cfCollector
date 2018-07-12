@@ -16,10 +16,9 @@ export class HomeComponent implements OnInit {
     this.itemsService = itemsService;
   }
 
-  ngOnInit() {
-    if (!this.itemsService.currentItem.title) {
-    this.itemsService.currentItem.title = 'Item';
-    }
-  }
+  ngOnInit() {}
 
+  saveItem():void{
+    console.log(this.itemsService.currentItem)
+  }
 }
