@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Item} from '../Item/Item';
-import {ItemsService} from '../items.service';
+import { Component, OnInit } from '@angular/core';
+import { Item } from '../Item/Item';
+import { ItemsService } from '../items.service';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit {
     this.itemsService = itemsService;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  saveItem():void{
-    console.log(this.itemsService.currentItem)
+  saveItem(): void {
+    console.log(this.itemsService.currentItem);
   }
 }

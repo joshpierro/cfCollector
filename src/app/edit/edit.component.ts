@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ItemsService} from "../items.service";
+import { ItemsService } from '../items.service';
 
 @Component({
   selector: 'app-edit',
@@ -8,9 +8,9 @@ import {ItemsService} from "../items.service";
 })
 export class EditComponent implements OnInit {
 
-  itemsService:ItemsService;
+  itemsService: ItemsService;
 
-  constructor(itemsService:ItemsService) {
+  constructor(itemsService: ItemsService) {
     this.itemsService = itemsService;
   }
 

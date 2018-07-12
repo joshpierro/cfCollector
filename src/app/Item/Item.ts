@@ -7,9 +7,9 @@ export class Item {
   images: Array<CfImage>;
 
   canSave(): boolean {
-    if(this.title && this.description){
-      return true; 
-    }else{
+    if (this.title && this.description) {
+      return true;
+    } else {
       return false;
     }
   }
