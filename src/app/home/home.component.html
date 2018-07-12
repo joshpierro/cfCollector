@@ -1,41 +1,34 @@
 <div fxLayout="row" fxLayoutAlign="center center">
   <div class="button-row">
     <button mat-icon-button color="primary">
-      <img src="assets/images/buttons/ic_camera_rear_black_24px.svg"
-           alt="scan"
-           aria-label="bar code"
-           routerLink="/scan">
+      <img src="assets/images/buttons/ic_camera_rear_black_24px.svg" alt="scan" aria-label="bar code" routerLink="/scan">
     </button>
     <button mat-icon-button color="primary">
-      <img src="assets/images/buttons/ic_mode_edit_black_24px.svg"
-           alt="edit"
-           aria-label="edit"
-           routerLink="/edit">
+      <img src="assets/images/buttons/ic_mode_edit_black_24px.svg" alt="edit" aria-label="edit" routerLink="/edit">
     </button>
     <button mat-icon-button color="primary">
-      <img src="assets/images/buttons/ic_camera_black_24px.svg"
-           alt="camera"
-           aria-label="take picture"
-           routerLink="/picture">
+      <img src="assets/images/buttons/ic_camera_black_24px.svg" alt="camera" aria-label="take picture" routerLink="/picture">
     </button>
     <button mat-icon-button color="primary" [disabled]="!itemsService.currentItem.canSave()" (click)="saveItem()">
       <img src="assets/images/buttons/ic_save_black_24px.svg" alt="camera" aria-label="take picture">
     </button>
-    </div>
-    </div>
+  </div>
+</div>
 <mat-card>
   <mat-list role="list">
+    <mat-list-item  role="listitem"  fxLayout="row" fxLayoutAlign="center center" *ngIf="itemsService.isSaving">
+      <div class="cf-save-indicator-container">
+          <mat-spinner></mat-spinner>
+      </div>
+    </mat-list-item>
     <mat-list-item role="listitem">
       <h3>{{itemsService.currentItem.title}}</h3>
     </mat-list-item>
-    <mat-list-item role="listitem"
-                   *ngIf="itemsService.currentItem.code">
+    <mat-list-item role="listitem" *ngIf="itemsService.currentItem.code">
       <strong>ItemNumber: </strong> {{itemsService.currentItem.code}}
     </mat-list-item>
     <mat-list-item role="listitem">
-     {{itemsService.currentItem.description}}
+      {{itemsService.currentItem.description}}
     </mat-list-item>
-    <mat-list-item role="listitem"></mat-list-item>
   </mat-list>
 </mat-card>
-

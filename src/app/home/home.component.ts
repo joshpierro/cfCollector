@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 import { Item } from '../Item/Item';
 import { ItemsService } from '../items.service';
 
@@ -22,7 +24,7 @@ export class HomeComponent implements OnInit {
     this.itemsService
       .save(this.itemsService.currentItem)
       .then(response => {
-        this.itemsService.currentItem = new Item();
+         // this.itemsService.resetItem();
       });
   }
 }

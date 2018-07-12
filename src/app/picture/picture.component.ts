@@ -32,7 +32,7 @@ export class PictureComponent implements OnInit {
     reader.addEventListener(
       'load',
       () => {
-        this.itemsService.currentItem.images.push(new CfImage(file.name, file.type, reader.result));
+        this.itemsService.currentItem.images.push(new CfImage(file.name, file.type, reader.result,file));
       },
       false);
   }

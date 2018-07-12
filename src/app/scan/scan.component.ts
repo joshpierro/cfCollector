@@ -31,9 +31,10 @@ export class ScanComponent implements OnInit {
       decoder : {
         readers : ['code_128_reader']
       }
-    }, (err) => {
-      if (err) {
+    }, (error) => {
+      if (error) {
         alert('Error Getting Barcode');
+        console.log(error)
         return;
       }
       this.quagga.start();

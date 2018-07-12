@@ -3,7 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatCardModule, MatInputModule, MatToolbarModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatInputModule, MatToolbarModule, MatListModule, MatProgressSpinnerModule} from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -61,6 +61,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatListModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false}),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
